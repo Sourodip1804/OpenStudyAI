@@ -36,3 +36,8 @@ class RAGSystem:
             [question],
             convert_to_numpy=True
         )
+        question_embedding = question_embedding.astype("float32")
+        distances, indices = self.index.search(
+            question_embedding,
+            top_k
+        )
