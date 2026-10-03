@@ -23,3 +23,9 @@ class RAGSystem:
             texts,
             convert_to_numpy=True
         )
+        embeddings = embeddings.astype("float32")
+        dimension = embeddings.shape[1]
+        self.index = faiss.IndexFlatL2(dimension)
+        self.index.add(embeddings)
+        print(f"Indexed {len(chunks)} chunks")
+        
