@@ -28,4 +28,11 @@ class RAGSystem:
         self.index = faiss.IndexFlatL2(dimension)
         self.index.add(embeddings)
         print(f"Indexed {len(chunks)} chunks")
-        
+
+    def search(self, question, top_k=5):
+        if self.index is None:
+            return []
+        question_embedding = self.embedding_model.encode(
+            [question],
+            convert_to_numpy=True
+        )
