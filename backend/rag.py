@@ -12,3 +12,6 @@ class RAGSystem:
         self.embedding_model = SentenceTransformer(
             "sentence-transformers/all-MiniLM-L6-v2"
         )
+
+        self.index = None
+        self
