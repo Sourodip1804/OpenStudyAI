@@ -27,3 +27,12 @@ def create_chunks(pages, chunk_size=500, overlap=100):
         words = page["text"].split()
         start=0
 
+        while start < len(words):
+            end=start + chunk_size
+            chunk_words=words[start:end]
+            if chunk_words:
+                chunks.append({
+                    "text": " ".join(chunk_words),
+                    "page": page["page"]
+                })
+
