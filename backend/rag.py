@@ -5,3 +5,7 @@ import faiss
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
+
+class RAGSystem:
+    def __init__(self):
+        print("Loading embedding ")
