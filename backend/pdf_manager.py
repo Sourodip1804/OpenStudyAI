@@ -20,3 +20,10 @@ def extract_text_from_pdf(pdf_path):
     document.close()
     return pages
 
+def create_chunks(pages, chunk_size=500, overlap=100):
+    # this is for the separating the word of the pdf into chunks of 500 words with an overlap of 100 words
+    chunks=[] #taking this as list to store the chunks
+    for page in pages:
+        words = page["text"].split()
+        start=0
+
