@@ -14,4 +14,12 @@ class RAGSystem:
         )
 
         self.index = None
-        self
+        self.chunks = []
+
+    def create_index(self, chunks):
+        self.chunks = chunks
+        texts = [chunk["text"] for chunk in chunks]
+        embeddings = self.embedding_model.encode(
+            texts,
+            convert_to_numpy=True
+        )
