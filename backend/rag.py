@@ -41,3 +41,4 @@ class RAGSystem:
             question_embedding,
             top_k
         )
+        results = []
