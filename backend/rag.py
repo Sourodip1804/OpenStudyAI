@@ -8,4 +8,7 @@ from sentence_transformers import SentenceTransformer
 
 class RAGSystem:
     def __init__(self):
-        print("Loading embedding ")
+        print("Loading embedding model ....")
+        self.embedding_model = SentenceTransformer(
+            "sentence-transformers/all-MiniLM-L6-v2"
+        )
