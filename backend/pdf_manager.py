@@ -35,4 +35,6 @@ def create_chunks(pages, chunk_size=500, overlap=100):
                     "text": " ".join(chunk_words),
                     "page": page["page"]
                 })
+            start += chunk_size - overlap
+    return chunks
 
