@@ -135,7 +135,7 @@ async def ask_question(request: QuestionRequest):
             status_code=400,
             detail="Question cannot be Empty...."
         )
-    relevant_chunks = rag_search(
+    relevant_chunks = rag.search(
       request.question,
       top_k=5
   )  
