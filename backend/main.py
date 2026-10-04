@@ -6,7 +6,7 @@ import os
 import shutil
 
 
-from pdf_manager import extract_text_from_pdf, create_chuncks
+from pdf_manager import extract_text_from_pdf, create_chunks
 from rag import RAGSystem
 from ai import(
     answer_question,
@@ -69,5 +69,54 @@ def home():
 Upload PDF Endpoint: This endpoint allows users to upload a PDF file. The uploaded file is saved to the UPLOAD_DIR, and the text is extracted from the PDF. The extracted text is then chunked into smaller pieces, and the RAG system creates an index of these chunks for retrieval.
 
 """
-@app
+@app.post("/upload")
 
+async def upload_pdf(file: UploadFile = File(...)):
+
+    if not file.filename.lower().endswith(".pdf"):
+
+        raise HTTPException(
+            status_code=400,
+            detail="Only PDF files are allowed"
+        )
+
+    file_path = os.path.join(
+        UPLOAD_DIR,
+        file.filename
+    )
+
+    with open(file_path, "wb") as buffer:
+
+        shutil.copyfileobj(
+            file.file,
+            buffer
+        )
+
+    try:
+
+        pages = extract_text_from_pdf(file_path)
+
+        if not pages:
+
+            raise HTTPException(
+                status_code=400,
+                detail="Could not extract text from PDF"
+            )
+
+        chunks = create_chunks(pages)
+
+        rag.create_index(chunks)
+
+        return {
+            "message": "PDF uploaded successfully",
+            "filename": file.filename,
+            "pages": len(pages),
+            "chunks": len(chunks)
+        }
+
+    except Exception as e:
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
