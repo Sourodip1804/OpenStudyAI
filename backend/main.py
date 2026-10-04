@@ -169,3 +169,8 @@ async def ask_question(request: QuestionRequest):
         "answer": answer,
         "sources": sources
     }
+
+"""
+for making the summary
+"""
+
