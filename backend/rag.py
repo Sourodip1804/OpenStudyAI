@@ -42,3 +42,10 @@ class RAGSystem:
             top_k
         )
         results = []
+
+        for index in indices[0]:
+            if index < len(self.chunks):
+                result.append(self.chunks[index])
+        return results
+
+    
