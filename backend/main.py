@@ -20,3 +20,9 @@ app = FastAPI(
     description="Open-source AI powered study assistant",
     version="1.0.0"
 )
+
+"""
+for the Cross-Origin Resource Sharing.
+this is the code below
+
+"""
