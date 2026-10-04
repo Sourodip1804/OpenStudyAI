@@ -1,5 +1,6 @@
 import requests
 
+# this is used to send requests to the Ollama API for generating responses based on prompts. The code defines several functions that interact with the Ollama API to answer questions, generate summaries, quizzes, and flashcards based on provided study material.
 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen3:4b"
