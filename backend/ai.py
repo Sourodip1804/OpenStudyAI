@@ -19,7 +19,6 @@ def ask_ollama(prompt):
 
 
 def answer_question(question, context):
-
     prompt = f"""
 You are OpenStudy AI, a helpful study assistant.
 
