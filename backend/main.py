@@ -223,3 +223,23 @@ async def quiz():
 for the flash cards
 """
 
+@app.post("/flashcards")
+async def flashcards():
+    if not rag.chunks:
+        raise HTTPException(
+            status_code=400,
+            detail="Please upload a PDF first"
+        )
+
+    context = "\n\n".join(
+        chunk["text"]
+        for chunk in rag.chunks
+    )
+
+    context = context[:30000]
+
+    result = generate_flashcards(context)
+
+    return {
+        "flashcards": result
+    }
