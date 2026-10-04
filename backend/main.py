@@ -120,3 +120,18 @@ async def upload_pdf(file: UploadFile = File(...)):
             status_code=500,
             detail=str(e)
         )
+
+
+"""
+for asking the question
+
+"""
+
+@app.post("/ask")
+async def ask_question(request: QuestionRequest):
+    if not request.question.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Question cannot be Empty...."
+        )
+    
