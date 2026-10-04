@@ -65,3 +65,9 @@ def home():
         "message": "OpenStudy AI API is running......."
     }
 
+"""
+Upload PDF Endpoint: This endpoint allows users to upload a PDF file. The uploaded file is saved to the UPLOAD_DIR, and the text is extracted from the PDF. The extracted text is then chunked into smaller pieces, and the RAG system creates an index of these chunks for retrieval.
+
+"""
+@app
+
