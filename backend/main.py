@@ -199,3 +199,21 @@ for making the quiz
 
 """
 
+@app.post("/quiz")
+async def quiz():
+    if not rag.chunks:
+        raise HTTPException(
+            status_code=400,
+            detail="Please upload a PDF first"
+        )
+
+    context = "\n\n".join(
+        chunk["text"]
+        for chunk in rag.chunks
+    )
+
+    context = context[:30000]
+    result = generate_quiz(context)
+    return {
+        "quiz": result
+    }
