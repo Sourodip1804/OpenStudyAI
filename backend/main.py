@@ -14,3 +14,9 @@ from ai import(
     generate_quiz,
     generate_flashcards
 )    
+
+app = FastAPI(
+    title="OpenStudy AI",
+    description="Open-source AI powered study assistant",
+    version="1.0.0"
+)
