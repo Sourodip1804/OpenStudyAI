@@ -235,11 +235,8 @@ async def flashcards():
         chunk["text"]
         for chunk in rag.chunks
     )
-
     context = context[:30000]
-
     result = generate_flashcards(context)
-
     return {
         "flashcards": result
     }
