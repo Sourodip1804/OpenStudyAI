@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from httpcore import request
 from pydantic import BaseModel
 
 import os
@@ -134,4 +135,9 @@ async def ask_question(request: QuestionRequest):
             status_code=400,
             detail="Question cannot be Empty...."
         )
-    
+    relevant_chunks = rag_search(
+      request.question,
+      top_k=5
+  )  
+
+  if
