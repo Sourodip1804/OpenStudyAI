@@ -174,3 +174,10 @@ async def ask_question(request: QuestionRequest):
 for making the summary
 """
 
+@app.post("/summary")
+async def summary():
+    if not rag.chunks:
+        raise HTTPException(
+            status_code=400,
+            detail="Please upload a PDF first...."
+        )
