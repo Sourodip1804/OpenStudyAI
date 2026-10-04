@@ -49,7 +49,6 @@ ANSWER:
 
 
 def generate_summary(context):
-
     prompt = f"""
 You are OpenStudy AI.
 
