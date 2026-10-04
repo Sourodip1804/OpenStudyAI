@@ -74,7 +74,6 @@ SUMMARY:
 
 
 def generate_quiz(context):
-
     prompt = f"""
 You are OpenStudy AI.
 
@@ -102,7 +101,6 @@ QUIZ:
 
 
 def generate_flashcards(context):
-
     prompt = f"""
 You are OpenStudy AI.
 
