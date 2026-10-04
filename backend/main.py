@@ -40,3 +40,9 @@ this is for the directories
 
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+"""
+For the RAG system, we create an instance of the RAGSystem class.
+
+"""
+rag = RAGSystem()
