@@ -181,3 +181,16 @@ async def summary():
             status_code=400,
             detail="Please upload a PDF first...."
         )
+    context = "\n\n".join(
+        chunk["text"]
+        for chunk in rag.chunks
+    )
+
+    # Keep the context manageable
+    context = context[:30000]
+
+    result = generate_summary(context)
+
+    return {
+        "summary": result
+    }
