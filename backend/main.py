@@ -54,3 +54,14 @@ for the models, we define a QuestionRequest model that represents the request bo
 """
 class QuestionRequest(BaseModel):
     question:str
+
+"""
+for the home route, we define a GET endpoint at the root URL ("/") that returns a simple message indicating that the OpenStudy AI API is running.
+
+"""
+@app.get("/")
+def home():
+    return{
+        "message": "OpenStudy AI API is running......."
+    }
+
