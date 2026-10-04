@@ -217,3 +217,9 @@ async def quiz():
     return {
         "quiz": result
     }
+
+
+"""
+for the flash cards
+"""
+
