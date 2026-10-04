@@ -13,11 +13,8 @@ def ask_ollama(prompt):
         },
         timeout=120
     )
-
     response.raise_for_status()
-
     data = response.json()
-
     return data["response"]
 
 
