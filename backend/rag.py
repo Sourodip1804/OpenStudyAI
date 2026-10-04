@@ -45,7 +45,7 @@ class RAGSystem:
 
         for index in indices[0]:
             if index < len(self.chunks):
-                result.append(self.chunks[index])
+                results.append(self.chunks[index])
         return results
 
     
