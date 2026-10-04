@@ -188,9 +188,7 @@ async def summary():
 
     # Keep the context manageable
     context = context[:30000]
-
     result = generate_summary(context)
-
     return {
         "summary": result
     }
