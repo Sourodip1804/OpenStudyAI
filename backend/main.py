@@ -139,5 +139,33 @@ async def ask_question(request: QuestionRequest):
       request.question,
       top_k=5
   )  
+    if not relevant_chunks:
 
-  if
+        raise HTTPException(
+            status_code=400,
+            detail="Please upload a PDF first"
+        )
+
+    context = "\n\n".join(
+        [
+            f"[Page {chunk['page']}]\n{chunk['text']}"
+            for chunk in relevant_chunks
+        ]
+    )
+
+    answer = answer_question(
+        request.question,
+        context
+    )
+
+    sources = [
+        {
+            "page": chunk["page"]
+        }
+        for chunk in relevant_chunks
+    ]
+
+    return {
+        "answer": answer,
+        "sources": sources
+    }
