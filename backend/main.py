@@ -52,3 +52,5 @@ rag = RAGSystem()
 for the models, we define a QuestionRequest model that represents the request body for the /ask endpoint. It contains a question field of type str.
 
 """
+class QuestionRequest(BaseModel):
+    question:str
