@@ -192,3 +192,10 @@ async def summary():
     return {
         "summary": result
     }
+
+
+"""
+for making the quiz
+
+"""
+
