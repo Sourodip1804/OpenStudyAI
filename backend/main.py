@@ -46,3 +46,9 @@ For the RAG system, we create an instance of the RAGSystem class.
 
 """
 rag = RAGSystem()
+
+
+"""
+for the models, we define a QuestionRequest model that represents the request body for the /ask endpoint. It contains a question field of type str.
+
+"""
