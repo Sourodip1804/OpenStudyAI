@@ -67,5 +67,9 @@ function App(){
             setLoading(false);
         }
     };
-    
+    // making a arrow function for this generation feature 
+    const generationFeature = async (feature) =>{
+
+    }
+
 }
