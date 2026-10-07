@@ -55,9 +55,16 @@ function App(){
                     question
                 }
             );
-            setAnswer(response.data.answer)
-            setSources(response.data.sources)
+            setAnswer(response.data.answer);
+            setSources(response.data.sources);
 
         }
-    }
+        catch(error){
+            alert{
+                error.response?.data?.detail || "Something went wrong"
+            };
+        } finally{
+            setLoading(false)
+        }
+    };
 }
