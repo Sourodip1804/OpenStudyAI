@@ -60,11 +60,12 @@ function App(){
 
         }
         catch(error){
-            alert{
+            alert(
                 error.response?.data?.detail || "Something went wrong"
-            };
+            );
         } finally{
-            setLoading(false)
+            setLoading(false);
         }
     };
+    
 }
