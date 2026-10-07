@@ -118,12 +118,9 @@ function App(){
               setActiveFeature={setActiveFeature}
               generateFeature={generateFeature}
             />
-
             <section className="content">
-
               {activeFeature === "ask" && (
-
-                <ChatBox
+                <Chatbox
                   askQuestion={askQuestion}
                   answer={answer}
                   sources={sources}
