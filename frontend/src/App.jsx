@@ -142,16 +142,10 @@ function App(){
                       : answer
                     }
                   </div>
-
                 </div>
-
               )}
-
-
               {activeFeature === "quiz" && (
-
                 <div>
-
                   <button
                     onClick={() =>
                       generateFeature("quiz")
@@ -159,7 +153,6 @@ function App(){
                   >
                     Generate Quiz
                   </button>
-
                   <div className="result">
 
                     {loading
