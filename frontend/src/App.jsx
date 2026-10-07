@@ -21,7 +21,7 @@ function App(){
         formData.append("file", file);
         try{
             setLoading(true)
-            const response = await axios.post("https://localhost:8000/upload",
+            const response = await axios.post("http://localhost:8000/upload",
                 formData,
                 {
                     headers: {
@@ -50,7 +50,7 @@ function App(){
             setAnswer("")
             setSources([])
             const response = await axios.post(
-                "https://localhost:8000/ask",
+                "http://localhost:8000/ask",
                 {
                     question
                 }
