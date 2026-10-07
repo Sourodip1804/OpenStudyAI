@@ -69,6 +69,16 @@ function App(){
     };
     // making a arrow function for this generation feature 
     const generationFeature = async (feature) =>{
+        try{
+            setLoading(true);
+            setAnswer("");
+            const response = await axios.post(
+                `http://localhost:8000/${feature}`
+            );
+            if (feature === "summary"){
+                setAnswer(response.data.summary);
+            }
+        }
 
     }
 
