@@ -33,6 +33,12 @@ function App(){
             alert("PDF uploaded successfully!")
 
         }
-        catch(error)
+        catch(error){
+            console.error(error);
+            alert(
+                error.response?.data?.detail || "Upload Failed...."
+            );
+
+        }
     }
 }
