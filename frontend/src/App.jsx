@@ -126,14 +126,9 @@ function App(){
                   sources={sources}
                   loading={loading}
                 />
-
               )}
-
-
               {activeFeature === "summary" && (
-
                 <div>
-
                   <button
                     onClick={() =>
                       generateFeature("summary")
