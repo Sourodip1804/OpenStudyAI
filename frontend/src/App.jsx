@@ -44,4 +44,20 @@ function App(){
             setLoading(false);
         }
     };
+    const askQuestion = async (question)=>{
+        try{
+            setLoading(true)
+            setAnswer("")
+            setSources([])
+            const response = await axios.post(
+                "https://localhost:8000/ask",
+                {
+                    question
+                }
+            );
+            setAnswer(response.data.answer)
+            setSources(response.data.sources)
+
+        }
+    }
 }
