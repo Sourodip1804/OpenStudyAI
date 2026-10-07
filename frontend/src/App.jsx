@@ -136,14 +136,11 @@ function App(){
                   >
                     Generate Summary
                   </button>
-
                   <div className="result">
-
                     {loading
                       ? "Generating..."
                       : answer
                     }
-
                   </div>
 
                 </div>
