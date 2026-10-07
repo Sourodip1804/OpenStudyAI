@@ -85,6 +85,11 @@ function App(){
                 setAnswer(response.data.flashcards);
             }
            
+        } catch(error){
+            alert(
+                error.response?.data?.detail ||
+                "Something went wrong"
+            );
         }
 
     }
