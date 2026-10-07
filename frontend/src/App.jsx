@@ -161,16 +161,10 @@ function App(){
                     }
 
                   </div>
-
                 </div>
-
               )}
-
-
               {activeFeature === "flashcards" && (
-
                 <div>
-
                   <button
                     onClick={() =>
                       generateFeature("flashcards")
@@ -178,28 +172,19 @@ function App(){
                   >
                     Generate Flashcards
                   </button>
-
                   <div className="result">
-
                     {loading
                       ? "Generating..."
                       : answer
                     }
-
                   </div>
-
                 </div>
-
               )}
-
             </section>
-
           </div>
 
         )}
-
       </main>
-
     </div>
   );
 }
