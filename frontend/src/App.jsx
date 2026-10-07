@@ -68,7 +68,7 @@ function App(){
         }
     };
     // making a arrow function for this generation feature 
-    const generationFeature = async (feature) =>{
+    const generateFeature = async (feature) =>{
         try{
             setLoading(true);
             setAnswer("");
@@ -90,8 +90,138 @@ function App(){
                 error.response?.data?.detail ||
                 "Something went wrong"
             );
+        } finally{
+            setLoading(false);
         }
+    };
+    return (
+    <div className="app">
+      <Navbar />
+      <main className="container">
+        <h1>
+          OpenStudy AI
+        </h1>
+        <p className="subtitle">
+          Your open-source AI study assistant
+        </p>
 
-    }
+        <UploadBox
+          uploadPDF={uploadPDF}
+          filename={filename}
+          uploaded={uploaded}
+          loading={loading}
+        />
+        {uploaded && (
+          <div className="workspace">
+            <Sidebar
+              activeFeature={activeFeature}
+              setActiveFeature={setActiveFeature}
+              generateFeature={generateFeature}
+            />
 
+            <section className="content">
+
+              {activeFeature === "ask" && (
+
+                <ChatBox
+                  askQuestion={askQuestion}
+                  answer={answer}
+                  sources={sources}
+                  loading={loading}
+                />
+
+              )}
+
+
+              {activeFeature === "summary" && (
+
+                <div>
+
+                  <button
+                    onClick={() =>
+                      generateFeature("summary")
+                    }
+                  >
+                    Generate Summary
+                  </button>
+
+                  <div className="result">
+
+                    {loading
+                      ? "Generating..."
+                      : answer
+                    }
+
+                  </div>
+
+                </div>
+
+              )}
+
+
+              {activeFeature === "quiz" && (
+
+                <div>
+
+                  <button
+                    onClick={() =>
+                      generateFeature("quiz")
+                    }
+                  >
+                    Generate Quiz
+                  </button>
+
+                  <div className="result">
+
+                    {loading
+                      ? "Generating..."
+                      : answer
+                    }
+
+                  </div>
+
+                </div>
+
+              )}
+
+
+              {activeFeature === "flashcards" && (
+
+                <div>
+
+                  <button
+                    onClick={() =>
+                      generateFeature("flashcards")
+                    }
+                  >
+                    Generate Flashcards
+                  </button>
+
+                  <div className="result">
+
+                    {loading
+                      ? "Generating..."
+                      : answer
+                    }
+
+                  </div>
+
+                </div>
+
+              )}
+
+            </section>
+
+          </div>
+
+        )}
+
+      </main>
+
+    </div>
+  );
 }
+
+export default App;
+
+
