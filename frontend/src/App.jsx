@@ -13,4 +13,22 @@ function App(){
     const [sources, setSources] = useState([])
     const [loading, setLoading] = useState(false)
     const [activeFeature, setActiveFeature] = useState("ask");
+
+    // arrow function for uploadPDF
+    const uploadPDF = async (file)=>{
+        const formData = new FormData();
+        formData.append("file", file);
+        try{
+            setLoading(true)
+            const response = await axios.post("https://localhost:8000/upload",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
+                }
+            );
+            
+        }
+    }
 }
