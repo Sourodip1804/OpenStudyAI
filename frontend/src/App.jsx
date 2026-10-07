@@ -78,6 +78,13 @@ function App(){
             if (feature === "summary"){
                 setAnswer(response.data.summary);
             }
+            if (feature === "quiz"){
+                setAnswer(response.data.quiz);
+            }
+            if (feature === "flashcards"){
+                setAnswer(response.data.flashcards);
+            }
+           
         }
 
     }
