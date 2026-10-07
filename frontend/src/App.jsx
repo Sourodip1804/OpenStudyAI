@@ -28,7 +28,11 @@ function App(){
                     }
                 }
             );
-            
+            setUploaded(true)
+            setFilename(response.data.filename)
+            alert("PDF uploaded successfully!")
+
         }
+        catch(error)
     }
 }
