@@ -6,6 +6,7 @@ import Upload from "./components/Uploadbox"
 import Chatbox from "./components/Chatbox "
 import Sidebar from "./components/Sidebar"
 
+
 function App(){
     const [uploaded, setUploaded] = useState(false)
     const [filename, setFilename] = useState("")
@@ -39,6 +40,8 @@ function App(){
                 error.response?.data?.detail || "Upload Failed...."
             );
 
+        } finally{
+            setLoading(false);
         }
-    }
+    };
 }
