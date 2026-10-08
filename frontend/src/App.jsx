@@ -21,7 +21,7 @@ function App(){
         formData.append("file", file);
         try{
             setLoading(true)
-            const response = await axios.post("http://localhost:8000/upload",
+            const response = await axios.post("/api/upload",
                 formData,
                 {
                     headers: {
@@ -50,7 +50,7 @@ function App(){
             setAnswer("")
             setSources([])
             const response = await axios.post(
-                "http://localhost:8000/ask",
+                "/api/ask",
                 {
                     question
                 }
@@ -73,7 +73,7 @@ function App(){
             setLoading(true);
             setAnswer("");
             const response = await axios.post(
-                `http://localhost:8000/${feature}`
+                `/api/${feature}`
             );
             if (feature === "summary"){
                 setAnswer(response.data.summary);
